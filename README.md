@@ -6,7 +6,7 @@ Workshop intends to teach the verilog coding guidelines that results in predicta
 
 # *Index*
 ***
-* Day 1: Introduction to Verilog RTL Design and Synthesis[#Day-1:-Introduction-to-Verilog-RTL-Design-and-Synthesis]
+* Day 1: Introduction to Verilog RTL Design and Synthesis[Day-1:-Introduction-to-Verilog-RTL-Design-and-Synthesis]
   * [Introduction to open-source simulator iverilog](#Introduction-to-open-source-simulator-iverilog)
     * [Introduction to iverilog Design Testbench](#Introduction-to-iverilog-Design-Testbench)
   * [Labs using iverilog and gtkwave](#Labs-using-iverilog-and-gtkwave)
