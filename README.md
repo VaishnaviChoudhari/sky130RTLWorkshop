@@ -195,9 +195,30 @@ In testbench, stimulus generator sets sel, i0, i1 to zero. The simulation runs f
 * This concludes that the primary inputs and outputs between RTL design and Synthesized netlist will remain the same. So, the same testbench can be used for both. 
 
 ### Introduction to Logic Synthesis Part 1
+#### Different flavours of gate
+ * Combinational delay in logic path determines maximum speed of operation of Digital Logic Circuit.
+  <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/165930756-13521cb5-f229-48e4-ac90-ebc6a027fc5e.png">
+ </p>
+
+Flipflop A and Flipflop B are connected through combinational circuit. To find maximum clock rate that can be applied to the flipflop
+
+  <p align="left" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/165935301-d8e7163e-cdb0-462b-8a8b-d8a357fd170b.png">
+ </p>
  
+ ## T<sub>clk</sub> > T<sub>CQ_A</sub> +  T<sub>COMBI</sub> +  T<sub>SETUP_B</sub>
  
+ *  T<sub>clk</sub>     - Period of the clock applied
+ *  T<sub>CQ_A</sub>    - Propagation Delay of Flipflop A
+ *  T<sub>COMBI</sub>   - Propagation Delay of Combinational circuit
+ *  T<sub>SETUP_B</sub> - Minimum time duration before the clock arrives for data to reach Flipflop B (setup time of FLF B)
  
+ Here, T<sub>clk</sub> is the minimum clock period. So, f<sub>clk</sub> is the maximum clock rate or maximum clock Frequency.
+
+ ![image](https://user-images.githubusercontent.com/68154219/165944209-94898d02-8866-4016-aea8-0447715dfacc.png)
+
+
  
  
  
