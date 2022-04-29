@@ -300,9 +300,9 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
  ## Labs using Yosys and SKY130 [PDKs](https://www.synopsys.com/glossary/what-is-a-process-design-kit.html)
  
  #### Lab 3: Yosys 1 good mux Part 1
- #### * What was learnt
-      * How to invoke Yosys
-      * How to Synthesize the Design
+ #### *What was learned*
+ * How to invoke Yosys
+ * How to Synthesize the Design
  #### *Labs*
  * Invoke yosys
  <p align="center" width="100%">
