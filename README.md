@@ -137,7 +137,6 @@ Workshop intends to teach the verilog coding guidelines that results in predicta
  <p align="center" width="100%">
  <img src="https://user-images.githubusercontent.com/68154219/165806522-1e0132c0-6a1e-4954-af4c-9ca09eaf3758.png">
  </p>
- [!image](https://user-images.githubusercontent.com/68154219/165806522-1e0132c0-6a1e-4954-af4c-9ca09eaf3758.png)
  
  * #### Design good_mux verilog file 
  <p align="center" width="100%">
