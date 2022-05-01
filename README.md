@@ -80,7 +80,7 @@ Workshop intends to teach the verilog coding guidelines that results in predicta
     * When level is set to 0, and only the module name is specified, it dumps ALL the variables of that module and all the variables in ALL lower level modules instantiated by this top module. If any module in not instantiated by this top module, then its variable will not be covered.
 
 ### Introduction to iverilog Design Testbench
- ### Design and Testbench setup
+ ###  Design and Testbench setup
  1. Design Setup :
  
 <p align="center" width="100%">
@@ -96,7 +96,7 @@ Workshop intends to teach the verilog coding guidelines that results in predicta
  </p>
  All the primary input are given stimulus generator and all primary outputs are given to stimulated observer in a testbench. So, testbench does not have a primary input or primary output.
  
- ### iVerilog based Simulation Flow
+ ###  iVerilog based Simulation Flow
  
  <p align="center" width="100%">
  <img src="https://user-images.githubusercontent.com/68154219/165758468-745eb0c9-855e-4409-9179-8098d6bdd707.png">
@@ -110,25 +110,25 @@ Workshop intends to teach the verilog coding guidelines that results in predicta
 #### *Labs*
 #### Lab 1: Introduction to Lab
  * #### Setting up the environment for all the labs
- <p align="center" width="100%">
- <img src="https://user-images.githubusercontent.com/68154219/165773236-2c33f8ba-a254-4411-9943-631d0431d890.png">
- </p>
+<p align="center" width="100%">
+<img src="https://user-images.githubusercontent.com/68154219/165773236-2c33f8ba-a254-4411-9943-631d0431d890.png">
+</p>
  
  #### Lab 2: Introduction iverilog gtkwave Part 1
  * #### Loading the design (good_mux.v file) and testbench file (tb_good_mux.v) to iverilog to generate a.out output file
- <p align="center" width="100%">
- <img src="https://user-images.githubusercontent.com/68154219/165775238-8e39ccdf-fc51-4bda-8172-543b628a256f.png">
- </p>
+<p align="center" width="100%">
+<img src="https://user-images.githubusercontent.com/68154219/165775238-8e39ccdf-fc51-4bda-8172-543b628a256f.png">
+</p>
  
 * #### Opening the vcd file (tb_good_mux.vcd) and checking its functionality on gtkwave viewer
- <p align="center" width="100%">
- <img src="https://user-images.githubusercontent.com/68154219/165779132-571f8736-442f-4241-ad91-6cea5867cecb.png">
- </p>
+ 
+  ![image](https://user-images.githubusercontent.com/68154219/165779132-571f8736-442f-4241-ad91-6cea5867cecb.png)
+ 
   The waveform demonstrates that the output triggers on positive clock edge. The logic of the design can be understand from the waveform as the output follows input i0 when sel signal is LOW and follows input i1 when sel signal is HIGH.
  
  
  #### GTKWAVE VIEWER
-<p align="center" width="100%">
+ <p align="center" width="100%">
  <img src="https://user-images.githubusercontent.com/68154219/165780807-53e3f295-a452-4e4f-8f4b-0f1f76cf166f.PNG">
  </p>
 
@@ -137,6 +137,7 @@ Workshop intends to teach the verilog coding guidelines that results in predicta
  <p align="center" width="100%">
  <img src="https://user-images.githubusercontent.com/68154219/165806522-1e0132c0-6a1e-4954-af4c-9ca09eaf3758.png">
  </p>
+ [!image](https://user-images.githubusercontent.com/68154219/165806522-1e0132c0-6a1e-4954-af4c-9ca09eaf3758.png)
  
  * #### Design good_mux verilog file 
  <p align="center" width="100%">
@@ -147,15 +148,16 @@ Workshop intends to teach the verilog coding guidelines that results in predicta
  <p align="center" width="100%">
  <img src="https://user-images.githubusercontent.com/68154219/165813337-6ecaf95b-38de-421a-806c-8d9612c1b1dc.png">
  </p>
-<p align="center" width="100%">
-<img src="https://user-images.githubusercontent.com/68154219/165813505-59f026d0-80d7-4ab1-b42e-8a6c3fff284e.png">
-</p>
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/165813505-59f026d0-80d7-4ab1-b42e-8a6c3fff284e.png">
+ </p>
 
 In testbench, stimulus generator sets sel, i0, i1 to zero. The simulation runs for 300 nano seconds. 
   - The sel input is toggled after every 75 nano seconds
   - The i0 input is toggled after every 10 nano seconds
   - The i1 input is toggled after every 55 nano seconds
-***
+
  ## Introduction to Yosys and Logic Synthesis
   #### *What was learnt*
  #### Terms such as
@@ -212,7 +214,7 @@ In testbench, stimulus generator sets sel, i0, i1 to zero. The simulation runs f
 ### Introduction to Logic Synthesis Part 1
 #### Different flavours of gate
  * Combinational delay in logic path determines maximum speed of operation of Digital Logic Circuit.
-  <p align="center" width="100%">
+ <p align="center" width="100%">
  <img src="https://user-images.githubusercontent.com/68154219/165930756-13521cb5-f229-48e4-ac90-ebc6a027fc5e.png">
  </p>
 
@@ -243,9 +245,10 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
  </p>
 
  * If Flipflop A captures the data in first clock cycle then, from the circuit above, Flipflop B stores the previous value of Flipflop A in the next clock cycle. 
+  <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/165987430-19c59679-2506-4cb3-b4c4-0fb0bfd8f68d.png">
+ </p>
  
- ![image](https://user-images.githubusercontent.com/68154219/165987430-19c59679-2506-4cb3-b4c4-0fb0bfd8f68d.png)
-
 *  If the circuit operates at very fast speed, Flipflop A and Flipflop B both will capture data at same clock pulse. This will lead to loss of data, as Flipflop B will not store previous value of Flipflop A. 
  
  * So, we need a minimum delay from Flipflop A to Flipflop B, which should be greater than the HOLD time. The fastest change to data in Flipflop B should happen after HOLD time window.
@@ -294,9 +297,12 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
  * The guidance to select appropriate flavours of cells is given by [CONSTRAINTS](http://www.vlsi-expert.com/2012/02/design-constraint-maximum-transition.html#:~:text=So%20Constraints%20are%20the%20instructions,or%20how%20the%20tool%20behaves.).
  
  ### Synthesizer Illustration
- ![image](https://user-images.githubusercontent.com/68154219/165997897-ca7baa52-32ef-4d24-bf6b-c2e64af51b3b.png)
-
-***
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/165997897-ca7baa52-32ef-4d24-bf6b-c2e64af51b3b.png">
+ </p>
+ 
+ 
  ## Labs using Yosys and SKY130 [PDKs](https://www.synopsys.com/glossary/what-is-a-process-design-kit.html)
  
  #### Lab 3: Yosys 1 good mux Part 1
@@ -305,31 +311,26 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
  * How to Synthesize the Design
  #### *Labs*
  * Invoke yosys
- <p align="center" width="100%">
- <img src="https://user-images.githubusercontent.com/68154219/166007116-fe97b3c2-0107-4297-b7d6-f7aba642cf0e.png">
- </p>
+ 
+   ![image](https://user-images.githubusercontent.com/68154219/166007116-fe97b3c2-0107-4297-b7d6-f7aba642cf0e.png)
 
  * Read the liberty .lib file
- <p align="center" width="100%">
- <img src="https://user-images.githubusercontent.com/68154219/166008066-ed700735-418c-455a-ad68-3f487edc88cc.png">
- </p>
+ 
+   ![image](https://user-images.githubusercontent.com/68154219/166008066-ed700735-418c-455a-ad68-3f487edc88cc.png)
  
  * Read verilog design good_mux.v file
- <p align="center" width="100%">
- <img src="https://user-images.githubusercontent.com/68154219/166008559-8ce5ad80-eede-48e9-bf6b-e63afbb894ef.png">
- </p>
+ 
+   ![image](https://user-images.githubusercontent.com/68154219/166008559-8ce5ad80-eede-48e9-bf6b-e63afbb894ef.png)
  
  * Synthesize the module good_mux
- <p align="center" width="100%">
- <img src="https://user-images.githubusercontent.com/68154219/166009446-c2ecbdb5-d21e-4e1a-a599-fb422a43c380.png">
- </p>
  
- * Generate netlist
- <p align="center" width="100%">
- <img src="https://user-images.githubusercontent.com/68154219/166013365-f2700774-ebb8-4e11-ac77-741da1739150.png">
- </p>
+   ![image](https://user-images.githubusercontent.com/68154219/166009446-c2ecbdb5-d21e-4e1a-a599-fb422a43c380.png)
  
- ![image](https://user-images.githubusercontent.com/68154219/166021172-e9eb10a3-bf45-4f5b-aafb-053c13468169.png)
+ * Generate netlist using [ABC](http://people.eecs.berkeley.edu/~alanmi/abc/#:~:text=Berkeley%20Logic%20Synthesis%20and%20Verification,appearing%20in%20synchronous%20hardware%20designs.) tool
+
+   ![image](https://user-images.githubusercontent.com/68154219/166013365-f2700774-ebb8-4e11-ac77-741da1739150.png)
+ 
+   ![image](https://user-images.githubusercontent.com/68154219/166021172-e9eb10a3-bf45-4f5b-aafb-053c13468169.png)
 
  It has
  * 3 inputs i0, i1, sel
@@ -347,13 +348,10 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
 
  #### Lab 3: Yosys 1 good mux Part 2
  
- * The graphical representation in above part consists of a 2 : 1 mux. 
+ * The graphical representation above consists of a 2 : 1 mux ($82 sky130_fd_sc_hd__mux2_1). 
  * It has 3 inputs i0, i1, sel loaded to mux through buffer.
  * The output y also has a buffer.
-
-  #### Lab 3: Yosys 1 good mux Part 2
- 
- * Write a Netlist
+ * Write a Netlist 
  <p align="center" width="100%">
  <img src="https://user-images.githubusercontent.com/68154219/166059167-4127f8cb-f984-4351-8d19-67a14109e0f5.png">
  </p>
@@ -377,26 +375,311 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
   * Contents of .lib file
   * understanding .lib file name
  #### *Labs*
+ 
+ #### Lab 4: Introduction to dot Lib part 1
+ 
  * Opening .lib file sky130_fd_sc_hd__tt_025C_1v80
  
  ![image](https://user-images.githubusercontent.com/68154219/166068006-807e6379-272c-49df-bfbe-75d8139f8b0e.png)
 
  ![image](https://user-images.githubusercontent.com/68154219/166068151-ee5e99f1-2b4c-4b5b-af5a-e8f675395963.png)
 
- * Factors causing variation in fabrication are
-  * Process
-  * Voltage
-  * Temperature
- In .lib file name  *sky130_fd_sc_hd__tt_025C_1v80*
- * *130* represents 130nm fabrication
- * *tt* represents typical process
- * *025C* represents 25 degrees celcius temperature
- * *1v80* represents 1.8 volt
+ The .lib file tells us about :
  
- #### Cell Definitions
+ * #### Factors causing variation in fabrication are
+   * Process
+   * Voltage
+   * Temperature
+ 
+ * In .lib file named  **sky130_fd_sc_hd__tt_025C_1v80**
+   * **130** represents 130nm fabrication
+   * **tt** represents typical process
+   * **025C** represents 25 degrees celcius temperature
+   * **1v80** represents 1.8 volt
+ 
+ * CMOS Technology is used
+ * Delay Model is Look up Table
+ * Time unit is 1 nano sec
+ * Voltage unit is 1V
+ * Current unit is 1mA
+ * Load resistance unit is 1K Ohms
+ * Load capacitance unit is 1pf
+ 
+ #### Lab 4: Introduction to dot Lib part 2
+ 
+ * #### Cell Definitions
  
  ![image](https://user-images.githubusercontent.com/68154219/166070000-e2508230-e777-4cdc-b4ab-8df2b3e1392c.png)
 
- For Example, The first cell name "sky130_fd_sc_hd_a2111o_1"
+ For Example, The first cell  **sky130_fd_sc_hd_a2111o_1**
  * Leakage power value is given
- * a2111o means it will and a0, a1 then or it with b1,c1,d1
+ * **a2111o** means it will AND a0, a1 then OR it with b1,c1,d1
+ * cell consists of all input combinations where !(variable) represents logic zero of a variable.
+ 
+ The logic equation of the cell *sky130_fd_sc_hd_a2111o_1* is given in the .behavioral file
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166155199-bf8026f1-95f3-4b67-9fef-5f1003f8a514.png">
+ </p>
+ 
+ * Comparison between 3 different flavours of the same cell
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166155530-aa014058-b69d-4160-980b-7866913c6935.png)
+
+ ![image](https://user-images.githubusercontent.com/68154219/166155681-2a59fa14-3bcc-46d3-9d3e-fad84c044b6c.png)
+ 
+  *  Flavour 1 has smallest area so has less wide transistor and more delay. So flavour 1 is slow flavour cell but has least power leakage.
+  *  Flavour 4 has largest area so has wider transistor and less delay. So flavour 2 is fast flavour cell but has maximum power leakage.
+  *  As compared to Flavour 1 and 4, Flavour 2 has moderately large area and width of the transistor.  So flavour 4 is moderate flavour cell and has moderate power leakage.
+  *  The cell footprint is same for all the flavours of a cell
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166156289-0225ada3-b556-47ac-b256-94a4299ae389.png)
+
+  *  The maximum transition is same for all the flavours of a cell.
+  *  The rise capacitance increases with increase in the flavour number. So, flavour 1 has high delay and flavour 4 has low delay.
+  
+ #### Lab 4: Introduction to dot Lib part 3
+ 
+ For less number of input gate, eg. 2 input AND gate, the .behavioral file is as given below
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166157424-ce14139c-f34d-44ef-a852-ed5fad135b57.png)
+ ![image](https://user-images.githubusercontent.com/68154219/166157357-f39d2a78-9f49-45b4-84f2-444a9a333078.png)
+
+ * Comparison between 3 different flavours of the 2 input AND gate cell is as shown below
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166157525-0cc578c8-1b5a-4440-b416-cae37e9f1d99.png">
+ </p>
+ 
+  * It has four combinations of leakage power for 4 different input combinations such as (A, B) = {00, 01, 11, 10}.
+ 
+    Thus, **No. of leakage power combination = No. of input combinations**
+ 
+ 
+ ## Hierarchical vs Flat Synthesis
+ 
+ #### Lab 5: Hier synthesis flat synthesis Part 1
+ 
+ * *Opening multiple_modules.v file*
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166159071-2a1deedc-431e-47cc-9ecb-8e0aa9b55361.png)
+ 
+ * It consists for 2 submodules - sub_module1 and sub_module2
+ * sub_module2 is a OR gate : **y = a | b**
+ * sub_module1 is a AND gate : **y = a & b**
+ * multiple_modules is the combination of sub_module1 and sub_module2 as shown
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166159619-2e51f810-0bca-461c-a6fc-019fb0a28ad5.png">
+ </p>
+ 
+* #### Synthesis of multiple_modules.v
+ 
+ Steps for hierarchical synthesis:
+ 
+ 1. Launch yosys 
+ 2. read liberty file
+ 3. read multiple_modules.v file
+ 4. synthesize the multiple_modules
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166160190-747d50ad-8165-4add-9d14-f0a908d6fac9.png)
+    ![image](https://user-images.githubusercontent.com/68154219/166160134-c76b1b90-782b-4ef6-a8f0-de0e24ab4191.png)
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166160282-98727824-4123-4f82-85fb-41a008fdfdf9.png)
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166160417-f46642c7-fa2f-449c-ad91-0d9eff5ea586.png)
+
+ * The statistics of sub_module1 and sub_module2 shows the number of wires, memories, processes and cells.
+ * The hierarchical design shows there are 2 cells - AND, OR
+ 
+ 5. Generating netlist and Mapping .lib file with design multiple_modules.v file using [ABC](http://people.eecs.berkeley.edu/~alanmi/abc/#:~:text=Berkeley%20Logic%20Synthesis%20and%20Verification,appearing%20in%20synchronous%20hardware%20designs.) tool
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166160879-0856df54-095f-47db-8185-bf4a634700f1.png)
+    ![image](https://user-images.githubusercontent.com/68154219/166160927-59c3e4e2-314c-44ed-8723-e788f62f256b.png)
+ 
+ 6. Graphical representation of multiple_module design 
+ 
+    <p align="center" width="100%">
+    <img src="https://user-images.githubusercontent.com/68154219/166161028-b648bcfe-a051-4490-85db-fcc6d809dbcf.png">
+    </p>
+ 
+    This is the hierarchical design where we can see the hierarchy.
+ 
+ 7. Write netlist in multiple_modules_hier.v file without attributes
+ 8. Opening the netlist multiple_modules_hier.v file
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166161327-4cccc15b-0f8c-4f5f-9d41-af019641c7df.png)
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166161829-360852bf-6a77-46c3-92d2-ef05f3868f1e.png)
+    
+    * multiple_modules preserves the hierarchy with instantiation of sub_module1 and sub_module2
+    * sub_module1 has instantiation of 2 input AND cell named *sky_fd_sc_hd__and2_0*
+    * sub_module2 has instantiation of input isolation cell  named *sky130_fd_sc_hd__lpflow_inputiso1p*
+      
+      The schematic of [sky130_fd_sc_hd__lpflow_inputiso1p](https://antmicro-skywater-pdk-docs.readthedocs.io/en/test-submodules-in-rtd/contents/libraries/sky130_fd_sc_hd/cells/lpflow_inputiso1p/README.html) cell is
+ 
+      ![image](https://user-images.githubusercontent.com/68154219/166162288-bc2e41bb-f4fb-4d66-9fb5-049c5984d4d7.png)
+      
+      It is a OR realisation.
+    
+ #### Lab 5: Hier synthesis flat synthesis Part 2
+ 
+ 9. Flatten the netlist 
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166163509-b2e6f589-b7f0-4d1e-83d0-7835320bbea6.png)
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166163559-059eb1da-5fc2-4dd1-9623-e9b15bdd8ce5.png)
+ 
+    On comparing the multiple_module_hier.v and  multiple_module_flat.v files, it can be observed that the flatten modules does not preserves the hierarchy.
+ 
+    The multiple_module_hier module instantiates AND, input isolation cells within the respective submodules, whereas multiple_module_flat module directly instantiates the cells within its own module.
+ 
+ 10. Graphical representation of flattened multiple_module.v file 
+  
+     ![image](https://user-images.githubusercontent.com/68154219/166163880-927ee212-1b83-4cb0-8ea8-93ada559f465.png)
+ 
+     The hierarchical graphical representation of multiple_module had sub_module1 and sub_module2, whereas the flattened representation has AND and Input Isolation cells.  
+
+  * Sub module level synthesis can be done for replicating the synthesisof same submodule multiple times if the same module appears multiple times in the design. For eg. In multipler, same operations are executed multiple times.  
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166164860-5f2c9e35-5531-46cc-99c6-e4912d983a87.png)
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166164900-ccbe01bf-4d4b-4047-8d43-b2e8e8c45b26.png)
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166164959-ca65f7db-95d8-41e8-8a4c-8f8765afa672.png)
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166164980-d5e95784-f2a0-4ab2-b19f-f71d29570d43.png)
+
+    ![image](https://user-images.githubusercontent.com/68154219/166164991-b3f1c1c8-f376-421d-a22f-a9f6638dabcc.png)
+
+
+
+## Various Flop coding styles and optimisation
+ 
+ ### Why Flops and Flop coding styles Part 1
+ 
+ * ####Why Flip Flop
+ 
+ In combinational circuits, propagation delay can cause glitch in the output as explained below
+ 
+ For Boolean expression Y = (A & B) | C, for input (A, B, C) = {1, 1, 0}; Y should be 1. But propagation delay of 1 ns causes glitch of 1 ns
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166165922-217c2c0e-d97b-44cd-a6fb-6227130979f6.png)
+ 
+ * To avoid corruption of output due to glitches, flip flops can be used between two combinational circuits. 
+ * Flipflops are triggered only on the edge of the clock applied.
+ * So, eventhough the output of combinational circuit is glitching, output will be stable.
+ * Flip Flops are initialied by SET/RESET which can be synchronous or asynchronous
+
+ ### Why Flops and Flop coding styles Part 2
+ 
+ 1. Open the verilog files of 4 types of flip flops - dff_asyncres.v, dff_async_set.v, dff_asyncres_syncres.v, dff_syncres.v
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166165321-40293df2-8ca5-45ed-8fbd-a8e14360dc65.png)
+    
+    * **dff_asyncres - Asynchronous Reset D Flip Flop**
+        * The logic is executed only on positive edge of clock or positive edge of async_reset
+        * If async_reset = HIGH, output is LOW; else output follows input at d.
+    
+    * **dff_async_set - Asynchronous Set D Flip Flop**
+        * The logic is executed only on positive edge of clock or positive edge of async_set
+        * If async_reset = HIGH, output is HIGH; else output follows input at d.
+ 
+    * **dff_asyncres_syncres - Asynchronous Reset Synchronous Reset D Flip Flop**
+        * The logic is executed only on positive edge of clock 
+        * If async_reset = HIGH, output is LOW; else if syncres = HIGH output is LOW, else output follows input at d.
+ 
+    * **dff_syncres - Asynchronous Reset Synchronous Reset D Flip Flop**
+        * The logic is executed only on positive edge of clock 
+        * If sync_reset = HIGH, output is LOW; else if syncres = HIGH output is LOW, else output follows input at d.
+ 
+ ###  Lab flop synthesis simulations Part 1
+ 
+ 2. Simulating all 4 flipflop verilog designs
+ 
+    *  **dff_asyncres**
+ 
+       ![image](https://user-images.githubusercontent.com/68154219/166167029-5390b775-fb18-41d3-bd1a-161b0f211dce.png)
+ 
+       Waveform :
+       
+       ![image](https://user-images.githubusercontent.com/68154219/166167060-295001d2-46d2-486f-9885-d7e3aecc4cfd.png)
+ 
+     *  **dff_async_set**
+ 
+       Following similar simulation steps
+ 
+       Waveform :
+       
+       ![image](https://user-images.githubusercontent.com/68154219/166167344-5f150901-2a81-48e5-8680-7c469e8bb521.png)
+
+    *  **dff_asyncres_syncres**
+ 
+       Following similar simulation steps
+ 
+       Waveform :
+       
+       ![image](https://user-images.githubusercontent.com/68154219/166167328-63902f06-aa79-4d05-8291-a11f0dd5d0e4.png)
+ 
+    *  **dff_syncres**
+ 
+       Following similar simulation steps
+ 
+       Waveform :
+       
+       ![image](https://user-images.githubusercontent.com/68154219/166167510-ad4066be-e8c5-4125-aab7-b483ebc3e675.png)
+
+    ###  Lab flop synthesis simulations Part 2
+    
+    3. Synthesizing all the 4 flipflop verilog files 
+       * Follow the same steps as previously explained to Initialize yosys, write liberty, read verilog files and synthesis the design
+       * use dfflibmap command used for synthesizing flipflops and then execute abc tool
+      
+       ![image](https://user-images.githubusercontent.com/68154219/166167988-c817ec12-68e8-4c5a-8086-3e7a4dc5725d.png)
+
+       ![image](https://user-images.githubusercontent.com/68154219/166168013-8d054192-05e3-4c93-8d6a-4e61d57f3e7a.png)
+ 
+       Graphical representation of all 4 flipflops post synthesis is as shown
+
+       * **dff_asyncres**
+       
+         ![image](https://user-images.githubusercontent.com/68154219/166168079-8f2da380-e048-4352-a31c-ec0380dbbe7c.png)
+   
+         *sky130_fd_sc_hd_dfrtp_1* is D flipflop reset cell. Since it is a reset, it has inverting clock as input
+ 
+       * **dff_async_set** 
+    
+         ![image](https://user-images.githubusercontent.com/68154219/166168337-18550979-e570-4682-b6d5-2c9c8e00d5fa.png)
+ 
+       * **dff_asyncres_syncres**
+ 
+        ![image](https://user-images.githubusercontent.com/68154219/166168794-8c347753-83af-478a-a934-bf5f5b5575e2.png)
+
+       * **dff_syncres**
+     
+         ![image](https://user-images.githubusercontent.com/68154219/166168715-257807b6-b60b-479e-914b-e1d657d15f33.png)
+
+           
+
+         
+         
+         
+
+
+ 
+ 
+ 
+
+ 
+
+
+
+
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
