@@ -238,6 +238,8 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
  * #### For maximum performance, the T<sub>COMBI</sub> delay should be minimum
  * #### So, for high performance we need Fast working cells.
  
+ ### Introduction to Logic Synthesis Part 2
+ 
  ### Need of Slow working cells
  
  <p align="center" width="100%">
