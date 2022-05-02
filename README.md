@@ -11,31 +11,42 @@ Workshop intends to teach the verilog coding guidelines that results in predicta
     * [Introduction to iverilog Design Testbench](#Introduction-to-iverilog-Design-Testbench)
   * [Labs using iverilog and gtkwave](#Labs-using-iverilog-and-gtkwave)
     * [Introduction to Lab](#Introduction-to-Lab)
-    * [Introduction iverilog gtkwave Part 1](#Introduction-iverilog-gtkwave-Part-1)
-    * [Introduction iverilog gtkwave Part2](#Introduction-iverilog-gtkwave-Part-2)
+    * [Introduction iverilog gtkwave](#Introduction-iverilog-gtkwave)
   * [Introduction to Yosys and Logic Synthesis](#Introduction-to-Yosys-and-Logic-Synthesis)
     * [Introduction to yosys](#Introduction-to-yosys)
-    * [Introduction to Logic Synthesis Part 1](#Introduction-to-Logic-Synthesis-Part-1)
-    * [Introduction to Logic Synthesis Part 2](#Introduction-to-Logic-Synthesis-Part-2)
+    * [Introduction to Logic Synthesis](#Introduction-to-Logic-Synthesis)
   * [Labs using Yosys and Sky130 PDKs](#Labs-using-Yosys-and-Sky130-PDKs)
-    * [Yosys 1 good mux Part 1](#Yosys-1-good-mux-Part-1)
-    * [Yosys 1 good mux Part 2](#Yosys-1-good-mux-Part-2)
-    * [Yosys 1 good mux Part 3](#Yosys-1-good-mux-Part-3)
-  ***
-  * [Day 2: Timing libs, hierarchical vs flat synthesis and efficient flop coding style](#Day-2-Timing-libs-hierarchical-vs-flat-synthesis-and-efficient-flop-coding-styles)
+    * [Yosys 1 good mux](#Yosys-1-good-mux)
+***
+* [Day 2: Timing libs, hierarchical vs flat synthesis and efficient flop coding style](#Day-2-Timing-libs-hierarchical-vs-flat-synthesis-and-efficient-flop-coding-styles)
   * [Introduction to timing .libs](#Introduction-to-timing-libs)
-    * [Introduction to dot lib Part 1](#Introduction-to-dot-lib-Part-1)
-    * [Introduction to dot lib Part 2](#Introduction-to-dot-lib-Part-2)
-    * [Introduction-to-dot-lib-Part-3](#Introduction-to-dot-lib-Part-3)
+    * [Introduction to dot lib](#Introduction-to-dot-lib)
   * [Hierarchical vs Flat Synthesis](#Hierarchical-vs-Flat-Synthesis)
-    * [Hier synthesis flat synthesis Part 1](#Hier-synthesis-flat-synthesis-Part-1)
-    * [Hier synthesis flat synthesis Part 2](#Hier-synthesis-flat-synthesis-Part-2)
+    * [Hier synthesis flat synthesis](#Hier-synthesis-flat-synthesis)
   * [Various Flop coding styles and optimisation](#Various-Flop-coding-styles-and-optimisation)
-    * [Why Flops and Flop Coding style Part 1](#Why-Flops-and-Flop-Coding-style-Part-1)
-    * [Why Flops and Flop Coding style Part 2](#Why-Flops-and-Flop-Coding-style-Part-2)
-    * [Why Flops and Flop Coding style Part 3](#Why-Flops-and-Flop-Coding-style-Part-3)
-    * [Why Flops and Flop Coding style Part 4](#Why-Flops-and-Flop-Coding-style-Part-4)
-    * [Interesting optimisations part 1](#Interesting-optimisations-part-1)
+    * [Why Flops and Flop Coding style](#Why-Flops-and-Flop-Coding-style)
+    * [Interesting optimisations](#Interesting-optimisations)
+ ***
+* [Day 3: Combinational and Sequential Optimisations](#Day-3-Combinational-and-Sequential-Optimisations)
+  * [Introduction to optimisations](#Introduction-to-optimisations)
+  * [Combinational Logic Optimisations](#Combinational-Logic-Optimisations)
+  * [Sequential Logic Optimisations](#Sequential-Logic-Optimisation)
+  * [Sequential Optimisations for Unused Outputs](#Sequential-Optimisations-for-Unused-Outputs)
+  ***
+  * [Day 4: GLS, Blocking vs Non-Blocking Synthesis-Simulation Mismatch](#Day-2-GLS-Blocking-vs-Non-Blocking-Synthesis-Simulation-Mismatch)
+  * [GLS, Synthesis-Simulation Mismatch and Blocking/Non-Blocking statements](#GLS-Synthesis-Simulation-Mismatch-and-Blocking/Non-Blocking-statements)
+    * [GLS Concepts And Flow Using Iverilog](#GLS-Concepts-And-Flow-Using-Iverilog)
+    * [Synthesis Simulation Mismatch](#Synthesis-Simulation-Mismatch)
+    * [Blocking And Non Blocking Statements In Verilog](#Blocking-And-Non-Blocking-Statements-In-Verilog)
+    * [Caveats with Blocking Statements](#Caveats-with-Blocking-Statements)
+  * [Labs on GLS, Synthesis-Simulation Mismatch](#Labs-on-GLS-Synthesis-Simulation-Mismatch)
+  * [Lab Synth sim mismatch blocking statement ](#Lab-Synth-sim-mismatch-blocking-statement)
+ ***
+* [Day 5: If, case, for loop and for generate](#Day-5-If-case-for-loop-and-for-generate)
+  * [If Case Constructs](#If-Case-Constructs)
+  * [Labs on Incomplete IF Case](#Labs-on-Incomplete-IF-Case)
+  * [Labs on Incomplete Overlappin Case](#Labs-on-Incomplete-IF-Case)
+ ***
     
  # Day 1: Introduction to Verilog RTL Design and Synthesis
  ***
@@ -108,13 +119,12 @@ Workshop intends to teach the verilog coding guidelines that results in predicta
 
  ## Labs using iverilog and gtkwave
 #### *Labs*
-#### Lab 1: Introduction to Lab
+
  * #### Setting up the environment for all the labs
 <p align="center" width="100%">
 <img src="https://user-images.githubusercontent.com/68154219/165773236-2c33f8ba-a254-4411-9943-631d0431d890.png">
 </p>
  
- #### Lab 2: Introduction iverilog gtkwave Part 1
  * #### Loading the design (good_mux.v file) and testbench file (tb_good_mux.v) to iverilog to generate a.out output file
 <p align="center" width="100%">
 <img src="https://user-images.githubusercontent.com/68154219/165775238-8e39ccdf-fc51-4bda-8172-543b628a256f.png">
@@ -210,7 +220,7 @@ In testbench, stimulus generator sets sel, i0, i1 to zero. The simulation runs f
 * If this output and the RTL simulation output are same then the netlist output of the synthesier is verified to be correct.
 * This concludes that the primary inputs and outputs between RTL design and Synthesized netlist will remain the same. So, the same testbench can be used for both. 
 
-### Introduction to Logic Synthesis Part 1
+### Introduction to Logic Synthesis
 #### Different flavours of gate
  * Combinational delay in logic path determines maximum speed of operation of Digital Logic Circuit.
  <p align="center" width="100%">
@@ -236,8 +246,6 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
  * #### Maximum is the speed of operation, better is the performance of the system.
  * #### For maximum performance, the T<sub>COMBI</sub> delay should be minimum
  * #### So, for high performance we need Fast working cells.
- 
- ### Introduction to Logic Synthesis Part 2
  
  ### Need of Slow working cells
  
@@ -306,7 +314,7 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
  
  ## Labs using Yosys and SKY130 [PDKs](https://www.synopsys.com/glossary/what-is-a-process-design-kit.html)
  
- #### Lab 3: Yosys 1 good mux Part 1
+ #### Yosys 1 good mux 
  #### *What was learned*
  * How to invoke Yosys
  * How to Synthesize the Design
@@ -346,8 +354,6 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
  <p align="center" width="100%">
  <img src="https://user-images.githubusercontent.com/68154219/166054967-6ae57303-927c-4085-a92c-83531722ca2c.png">
  </p>
-
- #### Lab 3: Yosys 1 good mux Part 2
  
  * The graphical representation above consists of a 2 : 1 mux ($82 sky130_fd_sc_hd__mux2_1). 
  * It has 3 inputs i0, i1, sel loaded to mux through buffer.
@@ -377,7 +383,7 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
   * understanding .lib file name
  #### *Labs*
  
- #### Lab 4: Introduction to dot Lib part 1
+ #### Introduction to dot Lib 
  
  * Opening .lib file sky130_fd_sc_hd__tt_025C_1v80
  
@@ -405,8 +411,6 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
  * Current unit is 1mA
  * Load resistance unit is 1K Ohms
  * Load capacitance unit is 1pf
- 
- #### Lab 4: Introduction to dot Lib part 2
  
  * #### Cell Definitions
  
@@ -437,8 +441,6 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
 
   *  The maximum transition is same for all the flavours of a cell.
   *  The rise capacitance increases with increase in the flavour number. So, flavour 1 has high delay and flavour 4 has low delay.
-  
- #### Lab 4: Introduction to dot Lib part 3
  
  For less number of input gate, eg. 2 input AND gate, the .behavioral file is as given below
  
@@ -458,7 +460,7 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
  
  ## Hierarchical vs Flat Synthesis
  
- #### Lab 5: Hier synthesis flat synthesis Part 1
+ #### Hier synthesis flat synthesis
  
  * *Opening multiple_modules.v file*
  
@@ -518,11 +520,11 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
       
       The schematic of [sky130_fd_sc_hd__lpflow_inputiso1p](https://antmicro-skywater-pdk-docs.readthedocs.io/en/test-submodules-in-rtd/contents/libraries/sky130_fd_sc_hd/cells/lpflow_inputiso1p/README.html) cell is
  
-      ![image](https://user-images.githubusercontent.com/68154219/166162288-bc2e41bb-f4fb-4d66-9fb5-049c5984d4d7.png)
+      <p align="center" width="100%">
+      <img src="https://user-images.githubusercontent.com/68154219/166162288-bc2e41bb-f4fb-4d66-9fb5-049c5984d4d7.png">
+      </p>
       
       It is a OR realisation.
-    
- #### Lab 5: Hier synthesis flat synthesis Part 2
  
  9. Flatten the netlist 
  
@@ -535,9 +537,11 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
     The multiple_module_hier module instantiates AND, input isolation cells within the respective submodules, whereas multiple_module_flat module directly instantiates the cells within its own module.
  
  10. Graphical representation of flattened multiple_module.v file 
-  
-     ![image](https://user-images.githubusercontent.com/68154219/166163880-927ee212-1b83-4cb0-8ea8-93ada559f465.png)
  
+     <p align="center" width="100%">
+     <img src="https://user-images.githubusercontent.com/68154219/166163880-927ee212-1b83-4cb0-8ea8-93ada559f465.png">
+     </p>
+    
      The hierarchical graphical representation of multiple_module had sub_module1 and sub_module2, whereas the flattened representation has AND and Input Isolation cells.  
 
   * Sub module level synthesis can be done for replicating the synthesisof same submodule multiple times if the same module appears multiple times in the design. For eg. In multipler, same operations are executed multiple times.  
@@ -549,29 +553,30 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
     ![image](https://user-images.githubusercontent.com/68154219/166164959-ca65f7db-95d8-41e8-8a4c-8f8765afa672.png)
  
     ![image](https://user-images.githubusercontent.com/68154219/166164980-d5e95784-f2a0-4ab2-b19f-f71d29570d43.png)
-
-    ![image](https://user-images.githubusercontent.com/68154219/166164991-b3f1c1c8-f376-421d-a22f-a9f6638dabcc.png)
-
-
-
+ 
+    <p align="center" width="100%">
+    <img src="https://user-images.githubusercontent.com/68154219/166164991-b3f1c1c8-f376-421d-a22f-a9f6638dabcc.png">
+    </p>
+    
 ## Various Flop coding styles and optimisation
  
- ### Why Flops and Flop coding styles Part 1
+ ### Why Flops and Flop coding styles 
  
- * ####Why Flip Flop
+ * #### Why Flip Flop
  
  In combinational circuits, propagation delay can cause glitch in the output as explained below
  
  For Boolean expression Y = (A & B) | C, for input (A, B, C) = {1, 1, 0}; Y should be 1. But propagation delay of 1 ns causes glitch of 1 ns
  
- ![image](https://user-images.githubusercontent.com/68154219/166165922-217c2c0e-d97b-44cd-a6fb-6227130979f6.png)
+  <p align="center" width="100%">
+  <img src="https://user-images.githubusercontent.com/68154219/166165922-217c2c0e-d97b-44cd-a6fb-6227130979f6.png">
+  </p>
  
  * To avoid corruption of output due to glitches, flip flops can be used between two combinational circuits. 
  * Flipflops are triggered only on the edge of the clock applied.
  * So, eventhough the output of combinational circuit is glitching, output will be stable.
  * Flip Flops are initialied by SET/RESET which can be synchronous or asynchronous
 
- ### Why Flops and Flop coding styles Part 2
  
  1. Open the verilog files of 4 types of flip flops - dff_asyncres.v, dff_async_set.v, dff_asyncres_syncres.v, dff_syncres.v
  
@@ -593,7 +598,7 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
         * The logic is executed only on positive edge of clock 
         * If sync_reset = HIGH, output is LOW; else if syncres = HIGH output is LOW, else output follows input at d.
  
- ###  Lab flop synthesis simulations Part 1
+ ### Lab flop synthesis simulations
  
  2. Simulating all 4 flipflop verilog designs
  
@@ -628,43 +633,480 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
        Waveform :
        
        ![image](https://user-images.githubusercontent.com/68154219/166167510-ad4066be-e8c5-4125-aab7-b483ebc3e675.png)
-
-    ###  Lab flop synthesis simulations Part 2
     
-    3. Synthesizing all the 4 flipflop verilog files 
-       * Follow the same steps as previously explained to Initialize yosys, write liberty, read verilog files and synthesis the design
-       * use dfflibmap command used for synthesizing flipflops and then execute abc tool
+ 3. Synthesizing all the 4 flipflop verilog files 
+    * Follow the same steps as previously explained to Initialize yosys, write liberty, read verilog files and synthesis the design
+    * use dfflibmap command used for synthesizing flipflops and then execute abc tool
+
+    ![image](https://user-images.githubusercontent.com/68154219/166167988-c817ec12-68e8-4c5a-8086-3e7a4dc5725d.png)
+
+    ![image](https://user-images.githubusercontent.com/68154219/166168013-8d054192-05e3-4c93-8d6a-4e61d57f3e7a.png)
+
+    Graphical representation of all 4 flipflops post synthesis is as shown
+
+    * **dff_asyncres**
+
+      <p align="center" width="100%">
+      <img src="https://user-images.githubusercontent.com/68154219/166168079-8f2da380-e048-4352-a31c-ec0380dbbe7c.png">
+      </p>
       
-       ![image](https://user-images.githubusercontent.com/68154219/166167988-c817ec12-68e8-4c5a-8086-3e7a4dc5725d.png)
+      *sky130_fd_sc_hd_dfrtp_1* is D flipflop reset cell. Since it is a reset, it has inverting clock as input
 
-       ![image](https://user-images.githubusercontent.com/68154219/166168013-8d054192-05e3-4c93-8d6a-4e61d57f3e7a.png)
- 
-       Graphical representation of all 4 flipflops post synthesis is as shown
+    * **dff_async_set** 
 
-       * **dff_asyncres**
-       
-         ![image](https://user-images.githubusercontent.com/68154219/166168079-8f2da380-e048-4352-a31c-ec0380dbbe7c.png)
-   
-         *sky130_fd_sc_hd_dfrtp_1* is D flipflop reset cell. Since it is a reset, it has inverting clock as input
- 
-       * **dff_async_set** 
-    
-         ![image](https://user-images.githubusercontent.com/68154219/166168337-18550979-e570-4682-b6d5-2c9c8e00d5fa.png)
- 
-       * **dff_asyncres_syncres**
- 
-        ![image](https://user-images.githubusercontent.com/68154219/166168794-8c347753-83af-478a-a934-bf5f5b5575e2.png)
-
-       * **dff_syncres**
+      <p align="center" width="100%">
+      <img src="https://user-images.githubusercontent.com/68154219/166168337-18550979-e570-4682-b6d5-2c9c8e00d5fa.png">
+      </p>
      
-         ![image](https://user-images.githubusercontent.com/68154219/166168715-257807b6-b60b-479e-914b-e1d657d15f33.png)
+    * **dff_asyncres_syncres**
 
-           
+     <p align="center" width="100%">
+     <img src="https://user-images.githubusercontent.com/68154219/166168794-8c347753-83af-478a-a934-bf5f5b5575e2.png">
+     </p>
 
+    * **dff_syncres**
+      
+      <p align="center" width="100%">
+      <img src="https://user-images.githubusercontent.com/68154219/166168715-257807b6-b60b-479e-914b-e1d657d15f33.png">
+      </p>
+
+ ### Interesting Optimisations
+
+ For example, optimising verilog designs mult_2.v and mult_8.v
+
+ 1. Opening the verilog files
+
+    <p align="center" width="100%">
+    <img src="https://user-images.githubusercontent.com/68154219/166191702-d1ba0923-273a-4dd1-a594-2e9bae66b243.png">
+    </p>  
+
+    * **mult_2.v** 
+
+      After simulation and synthesis 
+
+      * The Boolean equation is y = a * 2
+      * No of inputs   = 3 (a[2 : 0])
+      * No. of outputs = 4 (y[3 : 0])
+      * Logic Table 
+
+        <p align="center" width="100%">
+        <img src="https://user-images.githubusercontent.com/68154219/166195492-c5c10357-b0b4-41dc-8941-900eee0d012e.png">
+        </p>
+
+      * The output of the multiplier is the left shifted input with zero padded at LSB. 
+      * So, there are zero memories, processes and cells. 
+
+       ![image](https://user-images.githubusercontent.com/68154219/166197143-b13b9499-7295-4058-aa7b-a615082b1140.png)
+
+      * Graphical Representation of Multiplier of 2 is as shown
+
+        <p align="center" width="100%">
+        <img src="https://user-images.githubusercontent.com/68154219/166201854-71d3f633-76e5-48f3-b91e-85ceb3485dc0.png">
+        </p>
+
+      * Generating Netlist file mul2_net.v
+
+        ![image](https://user-images.githubusercontent.com/68154219/166202442-325b3a0c-8930-42b5-ad4e-ff6088557647.png)
+
+        <p align="center" width="100%">
+        <img src="https://user-images.githubusercontent.com/68154219/166202209-dcec3c9c-9f9b-4355-af2b-a23ae66638d1.png">
+        </p>
+
+    * **mult_8.v**
+
+       After simulation and synthesis 
+
+      * The Boolean equation is y = a * 9 = a * 8 + a = y(mul_2) + a 
+      * No of inputs   = 3 (a[2 : 0])
+      * No. of outputs = 6 (y[5 : 0])
+      * Logic Table 
+
+        <p align="center" width="100%">
+        <img src="https://user-images.githubusercontent.com/68154219/166200805-c7d692e8-959f-49f6-8614-907900d20e71.png">
+        </p>
+
+
+      * The output of the multiplier is the double replication of input, that is, aa. 
+      * So, there are zero memories, processes and cells. 
+
+       ![image](https://user-images.githubusercontent.com/68154219/166201772-c16beb07-5686-47d5-87b5-e0626059e2a9.png)
+
+      * Graphical Representation of Multiplier of 8 is as shown
+
+        <p align="center" width="100%">
+        <img src="https://user-images.githubusercontent.com/68154219/166201347-8699cb2c-e187-4d9e-b347-81879475c14b.png">
+        </p>
+
+      * Generating Netlist file mul8_net.v
+
+        ![image](https://user-images.githubusercontent.com/68154219/166201443-69c5c68f-5646-4eca-86d5-18eb787ecb65.png)
+
+        <p align="center" width="100%">
+        <img src="https://user-images.githubusercontent.com/68154219/166201513-4c7066af-a63c-4ed6-9c63-4d1f08ed9a2a.png">
+        </p>
+
+ ***
+ # Day 3: Combinational and Sequential Optimisations
+ *** 
+ ## Introduction to optimisations
+ 
+ #### *What was learned*
+ 
+ * **Combinational Logic Optimisation** 
+   *  It is squeezing the combinational circuit logic to get the most optimised design which is efficient in terms of *area* and *power*.
+   * Techniques for Combinational Logic Optimisation are - 
+     1. Constant Propagation also called as Direct Optimisation
+     2. Boolean Logic Optimisation using K-Maps and Quine McKluskey
+ 
+ 1. #### Constant Propagation Optimisation
+ 
+ For example, consider the combinational circuit shown below
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166206822-7590348c-df49-44cd-ae54-d7bc9f7b8330.png">
+ </p>
+ 
+ The AND and NOR gates circuit is optimised to single NOT gate circuit with input C for input A = 0.
+ 
+ The combinational circuit requires Total 6 MOS transitors  which is optimised to only 2 MOS transistors. 
+ 
+ 2. #### Boolean Logic Optimisation
+ 
+ For example, consider the boolean equation shown below
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166207963-7e95ce8f-2ec5-4882-b8f2-a115dd923f86.png)
+ 
+ The logic is
+ * If C = 1, Y1 = A; else Y1 = 0
+ * If B = 1, Y2 = C; else Y2 = Y1
+ * If A = 1, Y = Y1; else Y = C'
+ 
+   <p align="center" width="100%">
+   <img src="https://user-images.githubusercontent.com/68154219/166210687-abb9125c-10cc-4470-9a74-8d30340ad800.png">
+   </p>
+ 
+   Y1 = AC
+   Y2 = B’Y1 + BC = AB’C + BC = AC + BC
+   Y = A’C’ + AY2 = A’C’ + AC + ABC = A’C’ + AC = A XNOR C
+   #### Optimised equation is Y = A XNOR C
+
+   * **Sequential Logic Optimisation**
+   *  It is squeezing the sequential circuit logic to get the most optimised design which is efficient in terms of *area* and *power*.
+   * Techniques for Sequential Logic Optimisation are - 
+     1. Basic Sequential Constant Propagation Optimisation
+     2. Advanced Sequential Constant Propagation Optimisation
+        * State Optimisation 
+        * Retiming
+        * Sequential Logic Cloning (Floor Plan Aware Synthesis) [*Not covered in this workshop*]
+ 
+ 1. #### Basic Sequential Constant Propagation Optimisation
+ 
+    Consider the below examples
+ 
+    <p align="center" width="100%">
+    <img src="https://user-images.githubusercontent.com/68154219/166214605-2c1ad223-0ea4-46c2-8daf-1a03e59bbc60.png">
+    </p>
+   
+    * Q is always 0 as D = 0 irrespective of whether or not RESET is HIGH or LOW
+    * Y = (0 A)' = 1
+    
+    But when SET is appiled in place of RESET, 
+    * Q is not constantly zero. 
+    * For SET = 1, Q is HIGH irrespective of clock. Thus it is Asynchronous.
+    * For SET = 0, Q waits for clock edge and then goes LOW. Thus it is Synchronous.
+    * Thus, this design cannot be optimised and has to be retained. 
+    * For Sequential circuit to be optimised, Q pin should be constant.
+ 
+    #### *Every flipflop with D input pin tied cannot be optimised*
+ 
+ 2. #### Advanced Sequential Constant Propagation Optimisation
+ 
+    *  State Optimisation - Optimisation of Unused States
+    *  Retiming - If different part of same sequential circuit has different frequencies, the output of the sequential circuit has optimised frequency equal to the minimum frequency. 
+    *  Sequential Logic Cloning (Floor Plan Aware Synthesis) - To avoid long routing, D flipflops are used to make copies of the logic in the path. Thus retaining the logic throughout the long path.
+ 
+#### *Labs*
+ 
+## Combinational Logic Optimisations
+
+1. Opening and simulating opt_check.v files
+ 
+   <p align="center" width="100%">
+   <img src="https://user-images.githubusercontent.com/68154219/166219168-f97fb08a-bcfa-4095-98b6-4047875f977c.png">
+   </p>
+ 
+   <p align="center" width="100%">
+   <img src="https://user-images.githubusercontent.com/68154219/166219371-ead08bbf-cc2f-4637-b764-112292f0d9d8.png">
+   </p>
+
+ 2. Synthesing opt_check.v, opt_check2.v, opt_check3.v, opt_check4.v files
+ 
+    * **opt_check.v** 
+    
+      ![image](https://user-images.githubusercontent.com/68154219/166221306-aa3a8daa-4c21-4a74-ae8b-fbcff3253ca2.png)
+ 
+      ![image](https://user-images.githubusercontent.com/68154219/166221415-77ec87d6-5840-4fd0-9f3b-24dfeb333cf4.png)
+    
+      There is one cell present in the design
+ 
+ 
+      ![image](https://user-images.githubusercontent.com/68154219/166221518-2731f00f-810d-43e4-9c07-88985f98843e.png)
+
+       opt_clean removes unused cells and wires, purge command clears named left over or unconnected nets which is passed implicitly to opt_clean.
+ 
+ 
+      ![image](https://user-images.githubusercontent.com/68154219/166221591-f068817f-2bfc-4ad6-9c26-6ab75e96806e.png)
+ 
+      ![image](https://user-images.githubusercontent.com/68154219/166221761-a276ba11-5c46-4dcc-b3d5-f85931ba3644.png)
+ 
+    * **opt_check2.v** 
+    
+      ![image](https://user-images.githubusercontent.com/68154219/166223057-b3f3ed42-7361-4d7c-aa94-f59849180c2e.png)
+ 
+      ![image](https://user-images.githubusercontent.com/68154219/166223158-7e3e3d40-1da6-4d40-aa06-be8e78e396d4.png)
+    
+      There is one cell present in the design
+ 
+ 
+      ![image](https://user-images.githubusercontent.com/68154219/166221518-2731f00f-810d-43e4-9c07-88985f98843e.png)
+
+      opt_clean removes unused cells and wires, purge command clears named left over or unconnected nets which is passed implicitly to opt_clean.
+ 
+ 
+      ![image](https://user-images.githubusercontent.com/68154219/166221591-f068817f-2bfc-4ad6-9c26-6ab75e96806e.png)
+ 
+      ![image](https://user-images.githubusercontent.com/68154219/166223426-8dc60f5f-6430-4060-b516-8f4293d628fb.png)
+ 
+    * **opt_check3.v** 
+
+      ![image](https://user-images.githubusercontent.com/68154219/166223864-42ae603c-bdd2-4227-b339-8aaa2622705c.png)
+
+      ![image](https://user-images.githubusercontent.com/68154219/166223991-1c341458-fde0-4512-b830-2122eb90ba65.png)
+
+      There are 2 cells present in the design
+
+ 
+      ![image](https://user-images.githubusercontent.com/68154219/166224069-8fc0c406-7371-4e0b-87d9-e33a003800dd.png)
+ 
+    * **opt_check4.v** 
+
+      ![image](https://user-images.githubusercontent.com/68154219/166224452-84445774-1729-428e-9b95-8cc64829574b.png)
+
+      ![image](https://user-images.githubusercontent.com/68154219/166224522-6b7eb5f8-dce0-421f-b42f-4a33b62d4426.png)
+
+      There are 4 cells present in the design
+
+
+      ![image](https://user-images.githubusercontent.com/68154219/166224587-28f162af-c6ff-45ee-9a5e-0016e7cfa73d.png)
+
+
+ 3. Graphical Representation
+ 
+    <p align="center" width="100%">
+    <img src="https://user-images.githubusercontent.com/68154219/166221815-c7b5e074-fac6-413b-b401-230f640b1f66.png">
+    </p>
+
+    <p align="center" width="100%">
+    <img src="https://user-images.githubusercontent.com/68154219/166223659-23e214f3-f309-4d6f-a390-6d8017fb1df8.png">
+    </p>
+ 
+    <p align="center" width="100%">
+    <img src="https://user-images.githubusercontent.com/68154219/166224275-82a86a52-ae9d-4602-a77b-7d37187bf225.png">
+    </p>
+
+    <p align="center" width="100%">
+    <img src="https://user-images.githubusercontent.com/68154219/166225222-ab485cdd-c322-4872-8bfd-b231a56b6b5d.png">
+    </p>
+ 
+ **[ASSIGNMENT]** Similarly multiple_module_opt.v is optimised and then flatten which increases efficiency of the design
+ 
+ 1.  Opening and simulating verilog files
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166226559-db152f33-6ea4-4e3b-8b36-6d13dbd47552.png)
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166226667-be0e5dc0-8401-440e-880b-07346e3e3975.png)
+
+ 2. Synthesizing the design 
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166227638-5256d3ea-0f3a-4415-a794-9f394ed82008.png)
+
+ 3. Hierarchical statistics
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166227792-a62426b5-8ba9-4be9-89cf-b15417c995f9.png)
+
+ ![image](https://user-images.githubusercontent.com/68154219/166227872-44a082b6-727d-4c01-b693-10c12ff0a22d.png)
+
+ 4. Graphical Representation
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166227973-e4a35128-3f51-484e-9db2-df5608311fc2.png">
+ </p>
+ 
+ 5. Write hierarchical netlist file
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166228064-10d78185-ee2f-42cd-8913-e6bba4326dab.png)
+
+ 6. Flattening the design
+ 
+![image](https://user-images.githubusercontent.com/68154219/166228129-8bfbf085-c83f-41d1-8afd-8edcb5192452.png)
+
+ 7. Comparing hierarchical and flat modules
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166227135-8bd408c6-c6f5-4a58-9fd1-6da6e9b6acdb.png)
+
+ The submodules in hierarchical design is removed in flattened design
+ 
+ 8. For sub_module1
+ 
+    ![image](https://user-images.githubusercontent.com/68154219/166228374-8b1c2d51-0f64-44e9-9a39-3d802f29d556.png)
+ 
+    <p align="center" width="100%">
+    <img src="https://user-images.githubusercontent.com/68154219/166228427-47ee16cd-caab-4cc2-b4b2-1582c4d6192c.png">
+    </p>
+  
+
+
+## Sequential Logic Optimisations
+ 
+We will simulate and synthesize 4 types of D flipflop constant files to optimise the design. 
+
+* **dff_const1.v**
+ 
+#### Simulating the design
+ 
+![image](https://user-images.githubusercontent.com/68154219/166230336-905ffa0e-2de7-4852-ab12-4722e5c3053a.png)
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166229861-409b6639-6e6b-44f1-872c-954f2782e8a5.png">
+ </p>
+  
+  <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166229905-c83531ec-66de-40b9-a1dd-ecb5ce6d31fe.png">
+ </p>
+
+ Q is constantly zero when RESET is HIGH
+
+ #### Synthesizing design
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166230429-a58cdb61-3a9f-4d2b-9ccc-6b88b83d9716.png)
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166230681-dbbb1e1c-835f-4388-8126-2b6481d9125c.png)
+
+ ![image](https://user-images.githubusercontent.com/68154219/166230592-9cfc6a45-3d69-4da5-b20a-f6a4f97c5fbe.png)
+
+ ![image](https://user-images.githubusercontent.com/68154219/166230624-7a0cc3ae-20bf-45e9-8426-4985ea2588cb.png)
+
+ ![image](https://user-images.githubusercontent.com/68154219/166230721-5fb4393f-d31f-4088-9c18-bf0bf8ffde6c.png)
+
+ #### Graphical Representation
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166230781-8eeb8e0f-1b78-4cf0-8f35-866cf0224140.png">
+ </p>
+ 
+ Similar steps are followed for simulation and synthesis of other D flipflop constant design
+ 
+ Following are the results of their simulation and synthesis
+ 
+ 
+ * **dff_const2.v**
+ #### Simulating the design
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166231424-09e05b55-9055-4c96-8d14-234f5b92ffcf.png">
+ </p>
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166231585-4e4d63d5-6624-4410-a49c-b8408fdcba50.png">
+ </p>
+ 
+#### Synthesizing design
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166231720-50df183d-5db7-43eb-a402-7599b4b4142b.png)
+ 
+#### Graphical Represenntation
+
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166231889-0e471781-cddd-47b5-a2a7-627e40ce970d.png">
+ </p>
+ 
+ * **dff_const3.v** 
+
+ #### Simulating the design
+
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166233590-fc2ec18e-8461-400f-bc69-bb2625fe3120.png">
+ </p>
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166232303-6691eef2-f4fe-4b8f-8a25-dfad2c514eda.png">
+ </p>
+ 
+#### Synthesizing design
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166233389-287a2caa-1021-4ee2-b401-d74b70817fec.png)
+ 
+#### Graphical Representation 
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166233210-8da9d23a-2333-4aba-a038-c73e1b30899e.png">
+ </p>
+
+## Sequential optimisation unused outputs
+ 
+ In this module, we will simulate and synthesis and optimizing counter design
+ 
+ #### Opening counter_opt files
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166234794-e09666d5-dc8a-49e3-be0c-17af49a8cb10.png)
+
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166235072-44b55d3e-b51e-49e0-8c34-5c619dd3e406.png">
+ </p>
+ 
+ 
+ #### Simulation waveforms 
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166235280-ce9d756b-8b68-452d-9153-83da20de92b8.png">
+ </p>
+ 
+#### Synthesis result
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166235457-53ff9816-72d3-452d-9556-a09bb93cd1da.png)
+
+ ![image](https://user-images.githubusercontent.com/68154219/166235516-4ad3abc3-9108-48e3-bf1a-1201734389ca.png)
+
+ #### Graphical Representation
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166235615-400c623d-28af-4d9f-a373-f6f0e94f53e5.png">
+ </p>
+ 
          
+ #### Now, we will copy counter_opt.v file and change the count bits to count[2:0] to create 2 unused bits.       
          
-         
+![image](https://user-images.githubusercontent.com/68154219/166237751-3d6dfc77-c15e-40ac-98d1-7a55a0a1d5cc.png)
 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166237786-57bf0097-9c72-461b-9db7-67faed5788e2.png">
+ </p>
+ 
+#### Synthesis result
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166238121-581cba51-66b4-4051-a7d9-38e48be6cf58.png)
+
+ ![image](https://user-images.githubusercontent.com/68154219/166238204-5f067673-0f59-4def-8064-c11939d90621.png)
+ 
+ ![image](https://user-images.githubusercontent.com/68154219/166238320-e573bb62-444b-4982-8282-7f91ee3f3962.png)
+
+ #### Graphical Representation
+ 
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166238640-7639de64-c164-480c-b711-8ff9317f3358.png">
+ </p>
+ 
 
  
  
@@ -677,7 +1119,7 @@ Flipflop A and Flipflop B are connected through combinational circuit. To find m
 
  
  
- 
+  
   
  
  
