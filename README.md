@@ -1090,7 +1090,7 @@ We will simulate and synthesize 4 types of D flipflop constant files to optimise
 ![image](https://user-images.githubusercontent.com/68154219/166237751-3d6dfc77-c15e-40ac-98d1-7a55a0a1d5cc.png)
 
  <p align="center" width="100%">
- <img src="https://user-images.githubusercontent.com/68154219/166237786-57bf0097-9c72-461b-9db7-67faed5788e2.png">
+ <img src="https://user-images.githubusercontent.com/68154219/166242377-53ef06e6-66c4-4762-a3cc-f7dbed838f2a.png">
  </p>
  
 #### Synthesis result
