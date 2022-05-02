@@ -1107,10 +1107,49 @@ We will simulate and synthesize 4 types of D flipflop constant files to optimise
  <img src="https://user-images.githubusercontent.com/68154219/166238640-7639de64-c164-480c-b711-8ff9317f3358.png">
  </p>
  
+***
+# Day 4: GLS, Blocking vs Non-Blocking Synthesis-Simulation Mismatch
+*** 
+## GLS, Synthesis-Simulation Mismatch and Blocking/Non-Blocking statements
+ 
+### GLS Concepts And Flow Using Iverilog
+ 
+#### *What was learned*
 
+ * GLS stands for **Gate Level Simulation**
+ * It means running the Testbench with Netlist as [Design Under Test](http://www.verifsudha.com/2016/07/22/dut-verification-engineer/) (DUT).
+ * Netlist is logically same as RTL Code
+ * We use GLS is verify the correctness of design after synthesis.
+ * It ensures timing of the design is met. For this GLS needs to be run with delay annotation.
  
+ #### GLS using iVerilog
  
+ <p align="center" width="100%">
+ <img src="https://user-images.githubusercontent.com/68154219/166262916-72e01a27-d005-43a8-9ff6-1edc2aef919e.png">
+ </p>
  
+### Synthesis and Simulation Mismatch
+ 
+ It occurs due to
+ 
+ * #### Missing Sensitivity List - 
+        A Simulator works only when there is change in input signal. In the verilog code, the input variable written in always@(sensitivity) is the Missing sensitivity. Only after change in the  sensitivity variable, the output is loaded with the value.  
+ * #### Blocking vs Non Blocking Assignments
+ * #### Non Standard Verilog Coding
+ 
+ ### Blocking And Non Blocking Statements In Verilog
+ 
+ Always inside a block
+ 
+ * '=' refer to **Blocking**
+ * Blocking executes the statements in order it is written.
+ * So the first statement is evaluated before second statement
+ 
+ * '<=' refer to **Non Blocking**
+ * Executes all the RHS when ALWAYS block is entered and assigns to RHS
+ * Parallel execution
+  
+ ### Caveats with Blocking statements
 
  
 
