@@ -1151,12 +1151,60 @@ We will simulate and synthesize 4 types of D flipflop constant files to optimise
   
  ### Caveats with Blocking statements
 
+ ![image](https://user-images.githubusercontent.com/68154219/166425883-16d90692-de1e-480d-903c-401ad925c610.png)
+
+ * In the first case, q gets the value of q0, then q0 gets the value of input d. So, here there are 2 D flipflops executed in series. q has the previous value of q0.
+ * In the second case, q0 gets the value of d, then q gers the value of q0. So, here only one D flipflop implemented as the q gets the current value of q0.
+
+ ![image](https://user-images.githubusercontent.com/68154219/166427080-f5be6d03-122f-4674-bd36-5ee35ba074a1.png)
+
+ ## Labs on GLS, Synthesis-Simulation Mismatch
+  
+  For gate level simulation 
+  * Open the ternary_operator_mux.v,bad_mux.v, good_mux.v files
+   
+   <p align="center" width="100%">
+   <img src="https://user-images.githubusercontent.com/68154219/166427746-aed997f5-ba7b-4e5a-ae02-92a9dc1655b3.png">
+   </p>
+    
+  *  Simulation results
+    
+   RTL OUTPUT
+    
+   <p align="center" width="100%">
+   <img src="https://user-images.githubusercontent.com/68154219/166432527-65001873-0932-4b0a-993c-b1a9a3527e82.png">
+   </p>
+    
+   GLS OUTPUT
+    
+   <p align="center" width="100%">
+   <img src="https://user-images.githubusercontent.com/68154219/166432798-75f08078-eca8-4bfb-9288-46bc05baa82e.png">
+   </p>
+
+    The design is within uut (unit under test). It shows wires alomg with other elements of the design
  
+  * Synthesis Result
+       
+   ![image](https://user-images.githubusercontent.com/68154219/166429120-29f4b3ff-b0c5-4ff5-a422-c82e800666be.png)
+
+   <p align="center" width="100%">
+   <img src="https://user-images.githubusercontent.com/68154219/166429510-6412c67e-126a-4596-8045-bb08bd75e296.png">
+   </p>
+   
+  ## Lab Synth Simulation Mismatch Blocking statement
+   
+  The RTL and GLS simulation waveform of bad_mux is  as shown below
+    
+  ![image](https://user-images.githubusercontent.com/68154219/166434098-f8f57be6-a41c-4a2a-a729-9ca3e2be7ff7.png)
+  
+   The upper waveforms are for RTL Simulation and lower is for GLS simulation
+    
+     
+
+   
+   
 
 
-
-
- 
  
   
   
