@@ -1133,7 +1133,7 @@ We will simulate and synthesize 4 types of D flipflop constant files to optimise
  It occurs due to
  
  * #### Missing Sensitivity List - 
-        A Simulator works only when there is change in input signal. In the verilog code, the input variable written in always@(sensitivity) is the Missing sensitivity. Only after change in the  sensitivity variable, the output is loaded with the value.  
+   A Simulator works only when there is change in input signal. In the verilog code, the input variable written in always@(sensitivity) is the Missing sensitivity. Only after change in the  sensitivity variable, the output is loaded with the value.  
  * #### Blocking vs Non Blocking Assignments
  * #### Non Standard Verilog Coding
  
@@ -1181,7 +1181,7 @@ We will simulate and synthesize 4 types of D flipflop constant files to optimise
    <img src="https://user-images.githubusercontent.com/68154219/166432798-75f08078-eca8-4bfb-9288-46bc05baa82e.png">
    </p>
 
-    The design is within uut (unit under test). It shows wires alomg with other elements of the design
+   The design is within uut (unit under test). It shows wires alomg with other elements of the design
  
   * Synthesis Result
        
